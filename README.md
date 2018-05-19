@@ -1,5 +1,9 @@
 # Images
-<img width="300" alt="screenshot" src="https://github.com/kecsot/KTValueBar/blob/master/screenshots/types.png"><img width="350" alt="screenshot" src="https://github.com/kecsot/KTValueBar/blob/master/screenshots/image1.png">
+<img width="300" alt="screenshot" src="https://github.com/kecsot/KTValueBar/blob/master/screenshots/types.png">
+<img width="300" alt="screenshot" src="https://github.com/kecsot/KTValueBar/blob/master/screenshots/btnradius.png">
+
+## News:
+**0.2.1 Enable to change the button's cornerRadius (2018.05.19)**
 
 # About the library
 In this library I used the "PhilJay/ValueBar" repository. Thank you for him!
@@ -22,7 +26,7 @@ allprojects {
 **Add the dependency**
 ```
 dependencies {
-        implementation 'com.github.kecsot:KTValueBar:0.2.0'
+        implementation 'com.github.kecsot:KTValueBar:0.2.1'
 }
 ```
 
@@ -82,7 +86,8 @@ You can set all parameter from the View. Like this:
         app:valueBarBackgroundColor="@color/colorPrimary"
         app:valueBarColor="@color/colorAccent"
         app:verticalBorderColor="@color/colorAccent"
-        app:verticalBorderWidth="8dp" />
+        app:verticalBorderWidth="8dp"
+        app:buttonCornerRadius="0dp"/>
 ```
 #### Here is a list from the attrs.xml
 ```
@@ -120,11 +125,9 @@ You can set all parameter from the View. Like this:
         app:leftButtonBottomPadding="dimension"
         app:leftButtonBackgroundColor="color"
         
-        <attr name="valueBarType" format="integer">
-            <flag name="nextToValueBar" value="0" />
-            <flag name="topOfValueBar" value="1" />
-            <flag name="bottomOfValueBar" value="2" />
-        </attr>
+        app:buttonCornerRadius="dimension" // Default = Full 
+        
+        app:valueBarType="nextToValueBar|topOfValueBar|bottomOfValueBar"
 ```
 ## Change parameters programmatically
 When you set a lot of attributes on the xml then you can set new params programmatically.
@@ -178,6 +181,7 @@ When you using the Builder, than your **layout settings will be overrided.**
                 // .setDrawableBottomPadding(5f.toPx)
                 // .setBackgroundColor(Color.GREEN)
                 // .setDrawable(R.mipmap.ic_launcher_round)
+                // .setCornerRadius(8f.toPx)
                 .build()
 
         val valueBarParam = KTValueBarParams.Builder()
@@ -238,8 +242,7 @@ fun setDrawableLeftPadding(leftPadding: Float)
 fun setDrawableRightPadding(rightPadding: Float) 
 fun setDrawableTopPadding(topPadding: Float) 
 fun setDrawableBottomPadding(bottomPadding: Float) 
+fun setCornerRadius(radius: Float)
 ```
-
-
 
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8DU35VL4CCL5L)
