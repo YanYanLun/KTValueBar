@@ -1,6 +1,5 @@
 # Images
-<img width="300" alt="screenshot" src="https://github.com/kecsot/KTValueBar/blob/master/screenshots/types.png">
-<img width="300" alt="screenshot" src="https://github.com/kecsot/KTValueBar/blob/master/screenshots/btnradius.png">
+<img width="300" alt="screenshot" src="https://github.com/kecsot/KTValueBar/blob/master/screenshots/types.png"><img width="350" alt="screenshot" src="https://github.com/kecsot/KTValueBar/blob/master/screenshots/btnradius.png">
 
 ## News:
 **0.2.1 Enable to change the button's cornerRadius (2018.05.19)**
