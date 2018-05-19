@@ -11,6 +11,32 @@
         android:id="@+id/exampleValueBar"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        app:actualValue="50"
+        app:horizontalBorderColor="#000"
+        app:horizontalBorderOnlyRemaining="false"
+        app:horizontalBorderWidth="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/exampleValueBar2"
+        app:leftButtonBackgroundColor="#bbb"
+        app:leftButtonLeftPadding="36dp"
+        app:leftButtonRightPadding="36dp"
+        app:maxValue="250"
+        app:minValue="20"
+        app:rightButtonBackgroundColor="#bbb"
+        app:rightButtonLeftPadding="36dp"
+        app:rightButtonRightPadding="36dp"
+        app:stepValue="2"
+        app:valueBarBackgroundColor="@color/colorPrimary"
+        app:valueBarColor="@color/colorAccent"
+        app:valueBarType="topOfValueBar"
+        app:verticalBorderColor="#000"
+        app:verticalBorderWidth="8dp" />
+
+
+    <hu.kecsot.ktvaluebar.KTValueBar
+        android:id="@+id/exampleValueBar2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
         app:actualValue="50"
         app:horizontalBorderColor="#000"
         app:horizontalBorderOnlyRemaining="false"
@@ -28,6 +54,7 @@
         app:valueBarColor="@color/colorAccent"
         app:verticalBorderColor="#000"
         app:verticalBorderWidth="8dp"
-        app:valueBarType="topOfValueBar"/>
+        app:valueBarType="topOfValueBar"
+        app:buttonCornerRadius="0dp"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -35,6 +35,8 @@
         <attr name="leftButtonBottomPadding" format="dimension" />
         <attr name="leftButtonBackgroundColor" format="color" />
 
+        <attr name="buttonCornerRadius" format="dimension" />
+
         <attr name="valueBarType" format="integer">
             <flag name="nextToValueBar" value="0" />
             <flag name="topOfValueBar" value="1" />

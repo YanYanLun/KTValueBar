@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
                 // .setDrawableBottomPadding(5f.toPx)
                  .setBackgroundColor(Color.GREEN)
                 //.setDrawable(R.mipmap.ic_launcher_round)
+                .setCornerRadius(8f.toPx)
                 .build()
 
         val valueBarParam = KTValueBarParams.Builder()
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                  .setVerticalBorderWidth(10f.toPx)
                 // .setBarColorFormatter(GreenToRedFormatter())
                 .build()
-      //  exampleValueBar.setParams(valueBarParam)
+        // exampleValueBar.setParams(valueBarParam)
 
         exampleValueBar.setValueBarChangedListener(object : KTValueBarChangedListener {
             override fun onChanged(newValue: Int) {
@@ -57,5 +58,7 @@ class MainActivity : AppCompatActivity() {
 
 
         exampleValueBar.animate(0f, 50f, 2000)
+
+
     }
 }

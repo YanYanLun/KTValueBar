@@ -72,6 +72,7 @@ class KTValueBar : LinearLayout {
                     else -> TypeOfValueBar.BOTTOM_OF_VALUEBAR
                 }
 
+                val buttonCornerRadius = typedArray.getDimension(R.styleable.KTValueBar_buttonCornerRadius, defaultParameters.rightButtonParams.cornerRadius)
 
                 rightButtonParams.apply {
                     this.backgroundColor = typedArray.getColor(R.styleable.KTValueBar_rightButtonBackgroundColor, defaultParameters.rightButtonParams.backgroundColor)
@@ -81,6 +82,7 @@ class KTValueBar : LinearLayout {
                     this.drawableBottomPadding = typedArray.getDimension(R.styleable.KTValueBar_rightButtonBottomPadding, defaultParameters.rightButtonParams.drawableBottomPadding)
                     this.drawableLeftPadding = typedArray.getDimension(R.styleable.KTValueBar_rightButtonLeftPadding, defaultParameters.rightButtonParams.drawableLeftPadding)
                     this.drawableRightPadding = typedArray.getDimension(R.styleable.KTValueBar_rightButtonRightPadding, defaultParameters.rightButtonParams.drawableRightPadding)
+                    this.cornerRadius = buttonCornerRadius
                 }
 
                 leftButtonParams.apply {
@@ -91,6 +93,7 @@ class KTValueBar : LinearLayout {
                     this.drawableBottomPadding = typedArray.getDimension(R.styleable.KTValueBar_leftButtonBottomPadding, defaultParameters.leftButtonParams.drawableBottomPadding)
                     this.drawableLeftPadding = typedArray.getDimension(R.styleable.KTValueBar_leftButtonLeftPadding, defaultParameters.leftButtonParams.drawableLeftPadding)
                     this.drawableRightPadding = typedArray.getDimension(R.styleable.KTValueBar_leftButtonRightPadding, defaultParameters.leftButtonParams.drawableRightPadding)
+                    this.cornerRadius = buttonCornerRadius
                 }
             }
         }

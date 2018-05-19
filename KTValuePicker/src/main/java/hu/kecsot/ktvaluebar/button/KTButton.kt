@@ -30,46 +30,45 @@ internal class KTButton(context: Context, var isLeftButton: Boolean, var buttonP
     /**
      * This method calculate and generate the background of button.
      */
-    private fun updateBackground(height: Int) {
-        if (height > 0) {
-            var topLeftRadius = 0f
-            var topRightRadius = 0f
-            var bottomLeftRadius = 0f
-            var bottomRightRadius = 0f
-            val halfRadius = (height / 2).toFloat();
+    private fun updateBackground(cornerRadius: Float) {
 
-            when (buttonPosition) {
+        var topLeftRadius = 0f
+        var topRightRadius = 0f
+        var bottomLeftRadius = 0f
+        var bottomRightRadius = 0f
 
-                KTValueBar.TypeOfValueBar.NEXT_TO_VALUEBAR -> {
-                    if (isLeftButton) {
-                        bottomLeftRadius = halfRadius
-                        topLeftRadius = halfRadius
-                    } else {
-                        bottomRightRadius = halfRadius
-                        topRightRadius = halfRadius
-                    }
-                }
-                KTValueBar.TypeOfValueBar.TOP_OF_VALUEBAR -> {
-                    topRightRadius = halfRadius
-                    topLeftRadius = halfRadius
-                }
-                KTValueBar.TypeOfValueBar.BOTTOM_OF_VALUEBAR -> {
-                    bottomLeftRadius = halfRadius
-                    bottomRightRadius = halfRadius
+        when (buttonPosition) {
+
+            KTValueBar.TypeOfValueBar.NEXT_TO_VALUEBAR -> {
+                if (isLeftButton) {
+                    bottomLeftRadius = cornerRadius
+                    topLeftRadius = cornerRadius
+                } else {
+                    bottomRightRadius = cornerRadius
+                    topRightRadius = cornerRadius
                 }
             }
-
-            val gradientDrawable = GradientDrawable()
-            gradientDrawable.apply {
-                shape = GradientDrawable.RECTANGLE
-                setColor(params.backgroundColor)
-                cornerRadii = floatArrayOf(topLeftRadius, topLeftRadius, topRightRadius, topRightRadius, bottomRightRadius, bottomRightRadius, bottomLeftRadius, bottomLeftRadius)
+            KTValueBar.TypeOfValueBar.TOP_OF_VALUEBAR -> {
+                topRightRadius = cornerRadius
+                topLeftRadius = cornerRadius
             }
-
-            background = StateListDrawable().apply {
-                addState(intArrayOf(), gradientDrawable)
+            KTValueBar.TypeOfValueBar.BOTTOM_OF_VALUEBAR -> {
+                bottomLeftRadius = cornerRadius
+                bottomRightRadius = cornerRadius
             }
         }
+
+        val gradientDrawable = GradientDrawable()
+        gradientDrawable.apply {
+            shape = GradientDrawable.RECTANGLE
+            setColor(params.backgroundColor)
+            cornerRadii = floatArrayOf(topLeftRadius, topLeftRadius, topRightRadius, topRightRadius, bottomRightRadius, bottomRightRadius, bottomLeftRadius, bottomLeftRadius)
+        }
+
+        background = StateListDrawable().apply {
+            addState(intArrayOf(), gradientDrawable)
+        }
+
     }
 
     private fun updateProperties() {
@@ -101,7 +100,7 @@ internal class KTButton(context: Context, var isLeftButton: Boolean, var buttonP
         }
     }
 
-    fun getDefaultImageResId(): Int {
+    private fun getDefaultImageResId(): Int {
         return if (isLeftButton) {
             DEFAULT_LEFT_DRAWABLE
         } else {
@@ -113,6 +112,11 @@ internal class KTButton(context: Context, var isLeftButton: Boolean, var buttonP
         val parentHeight = View.MeasureSpec.getSize(heightMeasureSpec)
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
-        updateBackground(parentHeight)
+        if (parentHeight < params.cornerRadius) {
+            updateBackground((parentHeight.div(2)).toFloat())
+
+        } else {
+            updateBackground(params.cornerRadius)
+        }
     }
 }

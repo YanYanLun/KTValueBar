@@ -14,7 +14,8 @@ data class KTButtonParams(
         var drawableLeftPadding: Float,
         var drawableRightPadding: Float,
         var drawableBottomPadding: Float,
-        var drawableTopPadding: Float) {
+        var drawableTopPadding: Float,
+        var cornerRadius: Float) {
     class Builder {
 
         private var drawable: Any? = null
@@ -24,6 +25,7 @@ data class KTButtonParams(
         private var drawableRightPadding = 8f.toPx
         private var drawableBottomPadding = 8f.toPx
         private var drawableTopPadding = 8f.toPx
+        private var cornerRadius = Float.MAX_VALUE.toPx
 
 
         fun setDrawable(drawable: Drawable) = apply { this.drawable = drawable }
@@ -35,6 +37,7 @@ data class KTButtonParams(
         fun setDrawableRightPadding(rightPadding: Float) = apply { this.drawableRightPadding = rightPadding }
         fun setDrawableTopPadding(topPadding: Float) = apply { this.drawableTopPadding = topPadding }
         fun setDrawableBottomPadding(bottomPadding: Float) = apply { this.drawableBottomPadding = bottomPadding }
+        fun setCornerRadius(radius: Float) = apply { this.cornerRadius = radius }
 
         fun build(): KTButtonParams {
             return KTButtonParams(
@@ -44,7 +47,8 @@ data class KTButtonParams(
                     drawableLeftPadding,
                     drawableRightPadding,
                     drawableBottomPadding,
-                    drawableTopPadding
+                    drawableTopPadding,
+                    cornerRadius
             )
         }
     }
